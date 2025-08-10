@@ -1,7 +1,8 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import SocialList from "@/components/SocialList.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
+import Note from "@/components/note/Note.astro";
 import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
@@ -13,12 +14,16 @@ const allPostsByDate = allPosts
 	.sort(collectionDateSort)
 	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
 
+// Notes
+const MAX_NOTES = 5;
+const allNotes = await getCollection("note");
+const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-    <h1 class="title mb-6">Hi, I’m Yashasvi.</h1>
-    <p class="mb-4">I build things and write occasionally. Site is under setup.</p>
+		<h1 class="title mb-6">Hi, I’m Yashasvi.</h1>
+		<p class="mb-4">I build things and write occasionally. Site is under setup.</p>
 		<SocialList />
 	</section>
 	<section class="mt-16">
@@ -33,5 +38,20 @@ const allPostsByDate = allPosts
 			}
 		</ul>
 	</section>
-  
+	{
+		latestNotes.length > 0 && (
+			<section class="mt-16">
+				<h2 class="title text-accent mb-6 text-xl">
+					<a href="/notes/">Notes</a>
+				</h2>
+				<ul class="space-y-6" role="list">
+					{latestNotes.map((note) => (
+						<li>
+							<Note note={note} as="h3" isPreview />
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
 </PageLayout>
