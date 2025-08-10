@@ -1,5 +1,7 @@
 export interface SiteConfig {
 	author: string;
+    /** Optional path to a logo/avatar image under /public. Example: "/images/avatar.jpg" */
+    logo?: string;
 	date: {
 		locale: string | string[] | undefined;
 		options: Intl.DateTimeFormatOptions;
