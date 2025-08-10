@@ -29,16 +29,22 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 		<SocialList />
 	</section>
 	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-6" role="list">
-			{
-				allPostsByDate.map((p) => (
-					<li class="grid gap-2 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
+		{
+			allPostsByDate.length > 0 && (
+				<>
+					<h2 class="title text-accent mb-6 text-xl">
+						<a href="/posts/">Posts</a>
+					</h2>
+					<ul class="space-y-6" role="list">
+						{allPostsByDate.map((p) => (
+							<li class="grid gap-2 sm:grid-cols-[auto_1fr]">
+								<PostPreview post={p} />
+							</li>
+						))}
+					</ul>
+				</>
+			)
+		}
 	</section>
 	{
 		latestNotes.length > 0 && (

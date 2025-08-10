@@ -3,6 +3,10 @@ import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { menuLinks } from "@/site.config";
 import { siteConfig } from "../../site.config";
+import { getAllPosts } from "@/data/post";
+
+const hasPosts = (await getAllPosts()).length > 0;
+const computedLinks = hasPosts ? [...menuLinks, { path: "/posts/", title: "Blog" }] : menuLinks;
 ---
 
 <header class="group relative mb-28 flex items-start sm:ps-32" id="main-header">
@@ -59,7 +63,7 @@ import { siteConfig } from "../../site.config";
 				id="navigation-menu"
 			>
 				{
-					menuLinks.map((link) => (
+					computedLinks.map((link) => (
 						<a
 							aria-current={Astro.url.pathname === link.path ? "page" : false}
 							class="px-4 underline-offset-2 hover:underline"
