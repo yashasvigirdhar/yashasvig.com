@@ -67,8 +67,10 @@ export async function GET(context: APIContext) {
 		weekday: "long",
 	});
 	const svg = await satori(markup(title, postDate), ogOptions);
-	const png = new Resvg(svg).render().asPng();
-	return new Response(png, {
+  const png = new Resvg(svg).render().asPng();
+  // Convert Node Buffer to ArrayBuffer for Web Blob compatibility
+  // Cast to any to satisfy BodyInit typing differences between DOM/undici in CI
+  return new Response(png as any, {
 		headers: {
 			"Cache-Control": "public, max-age=31536000, immutable",
 			"Content-Type": "image/png",

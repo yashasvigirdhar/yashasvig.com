@@ -88,11 +88,12 @@ export default defineConfig({
 	},
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
-	vite: {
+    vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],
 		},
-		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
+        // Loosen types to avoid Vite type mismatch between Astro's nested deps in CI
+        plugins: [tailwind() as any, rawFonts([".ttf", ".woff"]) as any],
 	},
 	env: {
 		schema: {
@@ -104,7 +105,7 @@ export default defineConfig({
 });
 
 function rawFonts(ext: string[]) {
-	return {
+    return {
 		name: "vite-plugin-raw-fonts",
 		// @ts-expect-error:next-line
 		transform(_, id) {
