@@ -62,26 +62,39 @@ const computedLinks = hasPosts ? [...menuLinks, { path: "/posts/", title: "Blog"
 				class="text-accent mt-1 flex flex-row items-center sm:mt-2 sm:divide-x"
 				id="navigation-menu"
 			>
-                {
-                    computedLinks.map((link) => {
-                        const isExternal = link.path.startsWith("http");
-                        return (
-                            <a
-                                aria-current={!isExternal && Astro.url.pathname === link.path ? "page" : false}
-                                class="px-4 underline-offset-2 hover:underline inline-flex items-center gap-1"
-                                href={link.path}
-                                rel={isExternal ? "noopener noreferrer" : undefined}
-                                target={isExternal ? "_blank" : undefined}
-                                data-astro-prefetch={!isExternal}
-                            >
-                                {link.title}
-                                {isExternal && (
-                                    <svg aria-hidden="true" class="h-3 w-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                )}
-                            </a>
-                        );
-                    })
-                }
+				{
+					computedLinks.map((link) => {
+						const isExternal = link.path.startsWith("http");
+						return (
+							<a
+								aria-current={!isExternal && Astro.url.pathname === link.path ? "page" : false}
+								class="inline-flex items-center gap-1 px-4 underline-offset-2 hover:underline"
+								href={link.path}
+								rel={isExternal ? "noopener noreferrer" : undefined}
+								target={isExternal ? "_blank" : undefined}
+								data-astro-prefetch={!isExternal}
+							>
+								{link.title}
+								{isExternal && (
+									<svg
+										aria-hidden="true"
+										class="h-3 w-3 opacity-70"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+										<polyline points="15 3 21 3 21 9" />
+										<line x1="10" y1="14" x2="21" y2="3" />
+									</svg>
+								)}
+							</a>
+						);
+					})
+				}
 			</nav>
 		</div>
 	</div>
