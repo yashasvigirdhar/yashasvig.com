@@ -3,11 +3,12 @@
 # You can adjust the behavior by modifying this file.
 # For more information, see:
 # https://github.com/actions/stale
-name: Mark stale issues and pull requests
+name: Mark stale issues and pull requests (disabled)
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "39 23 * * *"
+    - cron: "0 0 31 2 *" # effectively never; manual only
 
 jobs:
   stale:
