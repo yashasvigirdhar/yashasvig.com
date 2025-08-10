@@ -20,7 +20,3 @@ The site runs at `http://localhost:3000`.
 - **dev**: start the dev server
 - **build**: create a production build in `dist/`
 - **preview**: preview the production build locally
-
-### License
-
-MIT
