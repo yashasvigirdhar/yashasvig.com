@@ -16,12 +16,23 @@ const year = new Date().getFullYear();
 		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
 	>
 		<p id="footer_links" class="sr-only">More on this site</p>
-		{
-			menuLinks.map((link) => (
-				<a class="hover:text-global-text px-4 py-2 hover:underline sm:py-0" href={link.path}>
-					{link.title}
-				</a>
-			))
-		}
+        {
+            menuLinks.map((link) => {
+                const isExternal = link.path.startsWith("http");
+                return (
+                    <a
+                        class="hover:text-global-text px-4 py-2 hover:underline sm:py-0 inline-flex items-center gap-1"
+                        href={link.path}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        target={isExternal ? "_blank" : undefined}
+                    >
+                        {link.title}
+                        {isExternal && (
+                            <svg aria-hidden="true" class="h-3 w-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        )}
+                    </a>
+                );
+            })
+        }
 	</nav>
 </footer>

@@ -37,6 +37,7 @@ export const menuLinks: { path: string; title: string }[] = [
 	{ path: "/", title: "Home" },
 	// "Blog" link will be conditionally added in Header based on posts availability
     { path: "/notes/", title: "Notes" },
+    { path: "https://to10percentbodyfat.com/", title: "Fitness Blog" },
 ];
 
 // https://expressive-code.com/reference/configuration/
