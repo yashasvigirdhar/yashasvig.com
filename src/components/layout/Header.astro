@@ -68,7 +68,7 @@ const computedLinks = hasPosts ? [...menuLinks, { path: "/posts/", title: "Blog"
 						return (
 							<a
 								aria-current={!isExternal && Astro.url.pathname === link.path ? "page" : false}
-								class="inline-flex items-center gap-1 px-4 underline-offset-2 hover:underline"
+								class="inline-flex items-center gap-1 px-4 underline-offset-2 first:ps-0 hover:underline"
 								href={link.path}
 								rel={isExternal ? "noopener noreferrer" : undefined}
 								target={isExternal ? "_blank" : undefined}
