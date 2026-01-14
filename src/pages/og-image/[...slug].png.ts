@@ -55,7 +55,7 @@ export async function GET(context: APIContext) {
 		weekday: "long",
 	});
 
-	const avatarBase64 = `data:image/jpeg;base64,${Buffer.from(AvatarImage).toString("base64")}`;
+	const avatarBase64 = `data:image/jpeg;base64,${Buffer.from((AvatarImage as unknown as { data: number[] }).data).toString("base64")}`;
 
 	const svg = await satori(markup(title, postDate, avatarBase64), ogOptions);
   const png = new Resvg(svg).render().asPng();

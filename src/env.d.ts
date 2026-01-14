@@ -3,3 +3,8 @@ declare module "@pagefind/default-ui" {
 		constructor(arg: unknown);
 	}
 }
+
+declare module "*.jpg" {
+	const content: { type: "Buffer"; data: number[] };
+	export default content;
+}
