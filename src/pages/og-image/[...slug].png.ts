@@ -1,6 +1,4 @@
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import AvatarImage from "@/assets/avatar.jpg";
 import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
 import RobotoMono from "@/assets/roboto-mono-regular.ttf";
 import { getAllPosts } from "@/data/post";
@@ -57,11 +55,7 @@ export async function GET(context: APIContext) {
 		weekday: "long",
 	});
 
-	// Load avatar image as base64 for Satori
-	const __dirname = path.dirname(fileURLToPath(import.meta.url));
-	const avatarPath = path.resolve(__dirname, "../../assets/avatar.jpg");
-	const avatarBuffer = fs.readFileSync(avatarPath);
-	const avatarBase64 = `data:image/jpeg;base64,${avatarBuffer.toString("base64")}`;
+	const avatarBase64 = `data:image/jpeg;base64,${Buffer.from(AvatarImage).toString("base64")}`;
 
 	const svg = await satori(markup(title, postDate, avatarBase64), ogOptions);
   const png = new Resvg(svg).render().asPng();

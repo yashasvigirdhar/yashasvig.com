@@ -93,7 +93,7 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
         // Loosen types to avoid Vite type mismatch between Astro's nested deps in CI
-        plugins: [tailwind() as any, rawFonts([".ttf", ".woff"]) as any],
+        plugins: [tailwind() as any, rawFonts([".ttf", ".woff", ".jpg"]) as any],
 	},
 	env: {
 		schema: {
