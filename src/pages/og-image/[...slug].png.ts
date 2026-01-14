@@ -37,7 +37,7 @@ const markup = (title: string, pubDate: string, avatarBase64: string) =>
 				<h1 tw="text-5xl font-bold leading-snug text-white">${title}</h1>
 			</div>
 			<div tw="flex items-center justify-center w-64">
-				<img src="${avatarBase64}" tw="w-48 h-48" />
+				<img src="${avatarBase64}" tw="w-40" />
 			</div>
 		</div>
 		<div tw="flex items-center justify-end w-full p-10 border-t border-[#2bbc89] text-xl">
