@@ -16,7 +16,7 @@ This isn't a "10 lessons that led me to leave Google" post. It's just a candid a
 
 ## It Started With Fitness
 
-In January 2024, I signed up for a fitness coach.
+In January 2024, I signed up with a fitness coach.
 
 I wasn't overweight or unhealthy. I just wanted visible abs at least once in my life - as cliche as that sounds, it was genuinely my goal. I also wanted to build real strength in calisthenics. I'd been stuck at 6-7 pull-ups for too long, and I wanted to progress across all bodyweight movements.
 
