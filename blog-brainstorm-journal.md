@@ -136,11 +136,36 @@ Having said all of that, I feel this is just the beginning of a long journey!"
 
 ---
 
-## Post 2: The First 7 Months as an Entrepreneur & Fitness Coach
+## Post 2: The First 8 Months as an Entrepreneur & Fitness Coach (June 2025 - January 2026)
 
 ### Raw Ideas & Thoughts:
 
-**Timeline of events:**
+**Prominent feelings when leaving (June 2025):**
+- CLARITY: Fitness was something I wanted to spend my time on - not just my fitness, but helping others experience what I've experienced in a healthier body
+- UNCERTAINTY: Having always worked in a stable job, my mind was not accustomed to this much uncertainty
+  - Not due to lack of funds - we had good savings, wife was still working
+  - But the mind wasn't used to operating without a concrete plan
+  - Not anxiety or stress - was very excited by the decision
+  - More like a persistent background chatter, mind couldn't relax or stop thinking about it
+  - Mind constantly trying to find answers: what am I going to do next?
+  - Never any doubt around the decision itself
+  - The mental processing: What will I do? What product will I build? How would coaching go? Will I get clients?
+  - This lasted for a couple of months easily
+  - Had to repeatedly tell my mind to just accept that things were going to be uncertain for a while now
+  - "Let's just not try to solve everything right now. Things will proceed brick by brick."
+  - Gradually got used to the uncertainty as well - both active acceptance AND getting accustomed to it
+
+**The coaching certification journey (June-August):**
+- Resumed working on completing coaching certification which was paused in last few months due to other life commitments
+- Last step required coaching 2 real people for a few weeks, and they'd evaluate my performance
+- Found two close friends who volunteered - they were also looking to get into a healthier body state at that point
+- Got a bit lucky there - if they didn't volunteer, INFS would match me with a random client (which would also be fine)
+- Both were quite committed and that helped a lot - they clearly had a difference from the coaching
+- From coaching POV, wasn't very different coaching friends vs strangers
+  - Kept it quite objective - don't let other things affect the coaching
+  - Not in a negative way, but coaching needs to be done in a way where you maintain professional boundaries
+- Still coaching both of them formally even now (8 months later)
+- Official coaching evaluation finished in August and got certification
 - August: Completed coaching certification and became official coach
   - Announcement post: https://www.instagram.com/p/DN6soibCGJL/
   - Caption: "𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹𝗹𝘆 𝗮 𝗖𝗲𝗿𝘁𝗶𝗳𝗶𝗲𝗱 𝗡𝘂𝘁𝗿𝗶𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗙𝗶𝘁𝗻𝗲𝘀𝘀 𝗖𝗼𝗮𝗰𝗵!
@@ -152,6 +177,55 @@ Ever since I went through my own physical transformation and experienced all tha
 Being a certified coach is the first step in that long journey. Having coached real people now, the feeling is priceless when you help someone discover a better version of themselves.
 
 This is just the beginning and many more things are coming up. Stay tuned!"
+- The satisfaction: Really satisfying feeling to help friends experience these benefits
+
+**The software side - exploring solutions:**
+- Approached it with: What are actually some of the problems in this space people face and which I can try to solve?
+- PROBLEM 1: Misinformation spread through social media, WhatsApp forwards etc.
+  - Observed this all around me
+  - The problem still exists and it's a major one
+  - Feel we have to solve it through technology due to sheer scale
+  - Started thinking about how to solve it
+  - Ideal solution: Whenever watching IG/TikTok video with misleading health claims, get a red banner in real time
+  - Building this turned out to be not so easy due to walled garden of big tech - doesn't give access to content user is watching
+  - THIS IS RIDICULOUS: As a user, I should be able to just "share" the content I am consuming with a 3p app so it's possible to build an entire ecosystem of apps over it
+  - Started building a basic version
+  - Concerns around this idea:
+    - Technical challenges (walled gardens)
+    - Monetization model unclear - this was my first product, freshly out of monthly salary
+    - Of course want to solve problems in fitness space but still need to pay my bills
+    - Can work on free apps maybe if I already establish some other income line so don't have to worry about money
+    - It's a function of time - right now, money still deserves my time's attention
+    - Was NOT getting 100% confidence to keep working on this idea due to both technical and monetization issues
+  - Explored this for a few weeks, not more
+  - At some point, PARKED IT and moved towards building software for fitness coaches
+  - A bit disappointing to step away - still want to work on that problem today
+  - But it's lack of time - difficult to work on multiple software products at once, specially when have other things like coaching
+  - This whole territory is new to me so that also takes time
+
+- PIVOT TO COACHING SOFTWARE:
+  - While coaching people, realized that coaching work had a lot of problems which could be solved by software
+  - From coaching those two friends AND watching how my coach used to do it when I was his client
+  - Coaching involves a lot of manual and time-taking work which can be made efficient using software
+  - Since I am myself a coach, this is the closest to a problem you can be as a founder
+  - Feel all those pain points personally
+  - Have been using my own software for my coaching for few months now
+  - Very close to the problem - actually see what all can be done or improved
+  - Important to be flexible and readily pivot in situations like this as you're constantly learning and evolving
+  - Product: https://assistantcoach.fit
+  - Building it on and off from August (had other travel plans and commitments - TODO: expand on this)
+  - ENERGIZING: So much more energizing building this, quite different from Google
+    - Seeing immediate impact when using it myself
+    - The autonomy of building exactly what I want
+    - Knowing other coaches will benefit from it
+    - Feel super connected to the problem
+  - Current state: Planning to productionize and sell it in coming months
+
+**Money mindset:**
+- Not like I was short on funds
+- But was without a salary for the first time without a plan to resume it in near future
+- Did have to think about money
+- Not a very uncomfortable feeling but just something that needed to pay attention to
 
 
 ---
