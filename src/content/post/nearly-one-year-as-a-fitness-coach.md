@@ -1,0 +1,92 @@
+---
+title: "Nearly One Year as a Fitness Coach"
+description: "What has surprised me about moving from software engineering to work where people, not products, are at the centre."
+publishDate: "2026-07-22T00:00:00Z"
+draft: true
+---
+
+It has been almost a year since I started working as a fitness coach. Not exactly a year — I started around August or September 2025 — but close enough to look back at what the work has actually felt like.
+
+I've coached somewhere between 15 and 20 people so far. That is not a huge number, and I'm still early in this journey. But it has been enough to realise how different this work is from the software engineering work I did for nearly ten years.
+
+I've already written about [why I left Google](/posts/leaving-google-to-become-a-fitness-coach), so this isn't another post about that decision. This is about the work itself.
+
+## People Are the Work
+
+In software engineering, the product or the technical system is usually at the centre. Of course you work with people — your team, PMs, designers, other engineers — but the thing you are trying to change is still the product.
+
+In coaching, the person is the centre of the whole thing.
+
+My job isn't just to write a training plan or calculate someone's calories. It is to help a person do the things that move them towards their goal. That means first understanding what the goal actually is, and then understanding the person well enough to know what might help them act on it.
+
+Every new client is different. One person may respond well to numbers and clear targets. Another may need more flexibility. The same message that motivates one person may make no difference to someone else.
+
+The technical knowledge matters, but knowing the theoretically correct answer is only part of the job. You have to translate it into something this particular person can follow in their actual life.
+
+## Much Closer to the Outcome
+
+In a large technology company, there can be many layers between your work and the person using it. You may build one part of a feature, which becomes one part of a product, which eventually reaches millions of users you will never meet.
+
+As a coach, I am about as close to the person I'm helping as I can be. I see their weekly check-ins. I review their workout videos and meal photos. I see when something clicks, and when life gets in the way.
+
+That closeness is deeply motivating.
+
+Seeing someone become stronger, healthier, or more confident because of changes you helped them make is a very rewarding feeling. A physical transformation also tends to affect much more than someone's body. It can change how they feel, how they carry themselves, and how they approach other parts of life.
+
+You don't have to imagine whether the work mattered. You can see it happening in front of you.
+
+## The Outcome Is Not Yours to Control
+
+There is another side to that closeness.
+
+A technical system is relatively deterministic. If something isn't working, you can inspect it, find the cause, change the code, and test it again. There are difficult problems, but the machine generally does what it has been instructed to do.
+
+Coaching doesn't work like that.
+
+I can give someone a plan, explain why it matters, make it fit their circumstances, and support them through it. But I cannot do their workout for them. I cannot eat their meals or sleep on their behalf. And sometimes a client won't be able to follow the plan for one of a hundred reasons — many of them completely valid.
+
+This is probably the hardest emotional part of coaching for me. I tend to become attached to a client's progress. Their goal starts to feel a little like my goal as well.
+
+That attachment is part of why I care about the work, but it also needs a boundary. I have to remind myself that my responsibility is to give the best guidance and support I can. The outcome is something the client and I work towards together, but it is not something I can control on my own.
+
+I'm still learning that balance.
+
+## The Body Is a Very Large Subject
+
+The knowledge required for coaching has surprised me too.
+
+We have been studying and reverse-engineering the human body for thousands of years, and there is still a lot we don't completely understand. Nutrition and exercise are only the obvious parts. They connect to anatomy, biochemistry, sleep, stress, recovery, the immune system, supplements, and many other things.
+
+Everything is tied together, and every person brings a slightly different body and set of circumstances.
+
+Software is also an enormous field, and no engineer knows all of it. But you can often draw a clear boundary around the part of the system you need to understand. With the body, those boundaries feel much less clean.
+
+There are still days when a client asks something and I don't know the answer. I don't think the solution is to pretend otherwise. I read, research, and try to understand it well enough to give them an informed answer — and when something is outside my scope, being clear about that matters too.
+
+I expect learning to remain a permanent part of this job.
+
+## Professionalism Still Looks Familiar
+
+One part of my software engineering background has carried over very naturally: I like reliable systems.
+
+My coaching has a structured weekly check-in. I have response-time expectations for reviewing those check-ins, workout videos, meal photos, and other client updates. In engineering language, I have an SLA for myself — and I take it seriously.
+
+I cannot guarantee that every client will reach every goal on a fixed timeline. There are too many variables for that. But I can make sure I don't miss something from my side. I can reply when I said I would, pay attention to the details, and keep the process dependable.
+
+In a job with uncertain outcomes, being rigorous about the inputs I control feels even more important.
+
+## Building Slowly, Through Results
+
+Getting the first few clients was hard. That cold-start problem exists here too: when experienced coaches have been doing this for ten years, why should someone trust a new coach?
+
+Over time, the answer has been the work itself. Fitness coaching seems to grow largely through word of mouth. Once people can see real progress, clients are more comfortable referring other people. I now have visible results from the people I've worked with, and new clients have started coming more organically.
+
+I have intentionally not tried to take on as many clients as possible. I want to give each person proper attention, and I am also building software for fitness coaches alongside this work.
+
+The money is not remotely close to what I made at Google. That was expected. I didn't start coaching because I thought it would replace a senior software engineering salary in a year.
+
+For me, this is a long-term game. Money matters — any sustainable profession eventually has to work financially — but it has intentionally been secondary at this stage. The first goal has been to become good at the work, help people get results, and build trust one person at a time.
+
+Almost a year in, I still have a lot to learn. But I like the nature of this work: close to the person, close to the outcome, and impossible to reduce to a perfectly predictable system.
+
+The uncertainty that makes coaching difficult is also what makes it human.
