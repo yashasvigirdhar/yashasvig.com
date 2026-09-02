@@ -1,0 +1,27 @@
+---
+// Carousel of client check-in excerpts, six to a page, quoted without attribution.
+import data from "@/data/coaching-year-one.json";
+import Carousel from "./Carousel.astro";
+
+const PER_PAGE = 6;
+// ==phrase== in the curated text marks a keyword to colour.
+const segments = (text: string) => text.split(/==(.+?)==/g);
+const pages: (typeof data.quotes)[] = [];
+for (let i = 0; i < data.quotes.length; i += PER_PAGE) pages.push(data.quotes.slice(i, i + PER_PAGE));
+---
+
+<Carousel label="What clients wrote in their weekly check-ins" title="In their words" heading="Some excerpts from my clients' weekly check-ins, exactly as they wrote them." align="start">
+	{
+		pages.map((page) => (
+			<div class="carousel-slide">
+				<div class="quote-page">
+					{page.map((q) => (
+						<figure class="collage-tile quote-card">
+							<p>{segments(q.text).map((seg, i) => (i % 2 ? <mark class="kw">{seg}</mark> : seg))}</p>
+						</figure>
+					))}
+				</div>
+			</div>
+		))
+	}
+</Carousel>

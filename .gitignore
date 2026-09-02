@@ -23,3 +23,7 @@ pnpm-debug.log*
 *.pem
 .cache
 .astro
+# coaching blog data dump (contains client names)
+coaching-year-one/data/
+coaching-year-one/config.local.json
+coaching-year-one/mockups/*-data.js

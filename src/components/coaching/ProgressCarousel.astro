@@ -1,0 +1,43 @@
+---
+// Carousel of strength progressions: heaviest set logged in the first session versus the heaviest logged since.
+import data from "@/data/coaching-year-one.json";
+import Carousel from "./Carousel.astro";
+
+const fmt = (n: number) => n.toLocaleString("en-GB", { maximumFractionDigits: 1 });
+const PER_PAGE = 4;
+const pages: (typeof data.progressions)[] = [];
+for (let i = 0; i < data.progressions.length; i += PER_PAGE) pages.push(data.progressions.slice(i, i + PER_PAGE));
+---
+
+<Carousel label="Strength progressions from logged workouts" title="Strength" heading="Some strength progressions from logged workouts." align="start">
+	{
+		pages.map((page) => (
+			<div class="carousel-slide">
+				<div class="progress-page">
+				{page.map((x) => {
+			const wasPct = x.to > 0 ? Math.max(0, Math.min(100, (100 * x.from) / x.to)) : 0;
+			const gain = Math.round((x.to - x.from) * 10) / 10;
+			return (
+					<div class="collage-tile progress-card">
+						<div class="head">
+							<div class="ex">{x.exercise}</div>
+							<span class="gain">+{fmt(gain)} {x.unit}</span>
+						</div>
+						<div class="big">
+							<span class="from">{fmt(x.from)}</span>
+							<span class="arrow">→</span>
+							<span class="to">{fmt(x.to)}</span>
+							<span class="unit">{x.unit}</span>
+						</div>
+						<div class="bar" aria-hidden="true">
+							<span class="was" style={`width:${wasPct}%`} />
+							<span class="now" style={`width:${100 - wasPct}%`} />
+						</div>
+					</div>
+			);
+		})}
+				</div>
+			</div>
+		))
+	}
+</Carousel>

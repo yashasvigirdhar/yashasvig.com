@@ -1,0 +1,132 @@
+---
+// Mosaic of all client check-in excerpts with a rotating spotlight: a few cards grow to readable size,
+// hold, shrink back, and the next few take over. Readers can tap any card, step, or pause; a tap pauses
+// the rotation. Layout changes are morphed with the View Transitions API where available.
+import data from "@/data/coaching-year-one.json";
+
+// ==phrase== in the curated text marks a keyword to colour.
+const segments = (text: string) => text.split(/==(.+?)==/g);
+const FEATURED_AT_START = 3;
+---
+
+<div class="collage not-prose" data-spotlight>
+	<div class="collage-board">
+		<h3 class="collage-title">In their words</h3>
+		<p class="carousel-heading">Some excerpts from my clients' weekly check-ins, exactly as they wrote them.</p>
+		<div class="spotlight" role="list">
+			{
+				data.quotes.map((q, i) => (
+					<button
+						type="button"
+						class:list={["collage-tile", "spot-card", { featured: i < FEATURED_AT_START }]}
+						role="listitem"
+						data-i={i}
+						style={`view-transition-name: spot-card-${i}; view-transition-class: spot-card;`}
+						aria-label="Read this excerpt"
+					>
+						<p>{segments(q.text).map((seg, j) => (j % 2 ? <mark class="kw">{seg}</mark> : seg))}</p>
+					</button>
+				))
+			}
+		</div>
+		<div class="spot-progress" aria-hidden="true"><span></span></div>
+		<div class="carousel-nav">
+			<span class="caption">Tap any card to read it.</span>
+			<span class="controls">
+				<button type="button" data-prev aria-label="Previous">←</button>
+				<button type="button" data-play aria-label="Pause" aria-pressed="false">❚❚</button>
+				<button type="button" data-next aria-label="Next">→</button>
+			</span>
+		</div>
+	</div>
+</div>
+
+<script>
+	const HOLD_MS = 4000;
+	const CUE_MS = 700;
+
+	function setUp(root: HTMLElement) {
+		const cards = Array.from(root.querySelectorAll<HTMLElement>(".spot-card"));
+		const total = cards.length;
+		const progress = root.querySelector<HTMLElement>(".spot-progress")!;
+		const playBtn = root.querySelector<HTMLButtonElement>("[data-play]")!;
+		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const count = () => (root.clientWidth < 480 ? 2 : 3);
+		let start = 0;
+		let timer: number | undefined;
+		let cueTimer: number | undefined;
+		let hovering = false;
+		let userPaused = reduceMotion;
+		let inView = false;
+
+		const inSet = (i: number, from: number) => (i - from + total) % total < count();
+		const apply = () => {
+			cards.forEach((card, i) => {
+				card.classList.toggle("featured", inSet(i, start));
+				card.classList.remove("next");
+			});
+		};
+		const show = (next: number) => {
+			start = ((next % total) + total) % total;
+			const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+			if (!reduceMotion && doc.startViewTransition) doc.startViewTransition(apply);
+			else apply();
+		};
+
+		const running = () => !userPaused && !hovering && inView;
+		const restartProgress = () => {
+			progress.classList.remove("running");
+			void progress.offsetWidth;
+			if (running()) progress.classList.add("running");
+		};
+		const cue = () => {
+			if (!running()) return;
+			cards.forEach((card, i) => card.classList.toggle("next", inSet(i, start + count())));
+		};
+		const schedule = () => {
+			window.clearTimeout(timer);
+			window.clearTimeout(cueTimer);
+			cards.forEach((card) => card.classList.remove("next"));
+			restartProgress();
+			if (!running()) return;
+			cueTimer = window.setTimeout(cue, HOLD_MS - CUE_MS);
+			timer = window.setTimeout(() => {
+				show(start + count());
+				schedule();
+			}, HOLD_MS);
+		};
+		const setPaused = (value: boolean) => {
+			userPaused = value;
+			playBtn.textContent = value ? "▶" : "❚❚";
+			playBtn.setAttribute("aria-label", value ? "Play" : "Pause");
+			playBtn.setAttribute("aria-pressed", String(value));
+			root.classList.toggle("paused", value);
+			schedule();
+		};
+
+		cards.forEach((card, i) => {
+			card.addEventListener("click", () => {
+				if (card.classList.contains("featured")) return;
+				show(i);
+				setPaused(true);
+			});
+		});
+		root.querySelector("[data-prev]")!.addEventListener("click", () => { show(start - count()); schedule(); });
+		root.querySelector("[data-next]")!.addEventListener("click", () => { show(start + count()); schedule(); });
+		playBtn.addEventListener("click", () => setPaused(!userPaused));
+		root.addEventListener("mouseenter", () => { hovering = true; schedule(); });
+		root.addEventListener("mouseleave", () => { hovering = false; schedule(); });
+		new IntersectionObserver((entries) => {
+			entries.forEach((e) => { inView = e.isIntersecting; });
+			schedule();
+		}, { threshold: 0.4 }).observe(root);
+		window.addEventListener("resize", apply);
+
+		progress.style.setProperty("--hold", `${HOLD_MS}ms`);
+		if (reduceMotion) setPaused(true);
+		apply();
+		schedule();
+	}
+
+	document.querySelectorAll<HTMLElement>("[data-spotlight]").forEach(setUp);
+</script>

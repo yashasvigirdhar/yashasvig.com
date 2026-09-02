@@ -1,0 +1,465 @@
+/* Client-progress collages used in coaching posts: shared board, tile, carousel and green accent roles. */
+.collage {
+	--good: oklch(58% 0.14 163.7);
+	--good-soft: oklch(76% 0.115 163.7);
+	--good-wash: oklch(58% 0.14 163.7 / 0.12);
+	--collage-board: oklch(96.5% 0 0);
+	--collage-tile: oklch(100% 0 0);
+	--collage-border: oklch(90% 0 0);
+	--collage-muted: oklch(55% 0.01 235);
+	--kw: oklch(48% 0.16 292);
+	margin-block: 2.25rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+[data-theme="dark"] .collage {
+	--good: oklch(66% 0.14 163.7);
+	--good-soft: oklch(48.5% 0.115 163.7);
+	--good-wash: oklch(66% 0.14 163.7 / 0.14);
+	--collage-board: oklch(27% 0.0045 248);
+	--collage-tile: oklch(30% 0.005 248);
+	--collage-border: oklch(33% 0.004 248);
+	--collage-muted: oklch(65% 0 264);
+	--kw: oklch(78% 0.12 292);
+}
+.collage-board {
+	padding: 0.9rem;
+	border-radius: 14px;
+	background: var(--collage-board);
+	border: 1px solid var(--collage-border);
+}
+.collage-caption {
+	margin-top: 0.6rem;
+	font-size: 0.72rem;
+	color: var(--collage-muted);
+}
+.collage-tile {
+	position: relative;
+	padding: 0.7rem 0.75rem 0.6rem;
+	border-radius: 10px;
+	background: var(--collage-tile);
+	border: 1px solid var(--collage-border);
+}
+
+/* Weight tiles */
+.weight-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.7rem;
+}
+@media (min-width: 480px) {
+	.weight-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+.weight-delta {
+	font-weight: 700;
+	font-size: 1.25rem;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	color: var(--color-accent-2);
+}
+.weight-delta small {
+	font-weight: 500;
+	font-size: 0.7rem;
+	color: var(--collage-muted);
+	margin-left: 0.15rem;
+}
+.weight-delta .in {
+	display: block;
+	font-weight: 500;
+	font-size: 0.68rem;
+	letter-spacing: 0;
+	color: var(--collage-muted);
+	margin-top: 0.1rem;
+}
+.weight-tile svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow: visible;
+	margin-top: 0.3rem;
+}
+.weight-tile .curve {
+	fill: none;
+	stroke: var(--good);
+	stroke-width: 2.5;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+.weight-tile .dot {
+	fill: var(--good);
+	stroke: var(--collage-tile);
+	stroke-width: 2.5;
+}
+.weight-tile .dot.start {
+	fill: var(--good-soft);
+}
+.weight-tile .lbl {
+	font-size: 10px;
+	fill: var(--collage-muted);
+}
+.weight-tile .lbl.end {
+	fill: var(--color-accent-2);
+	font-weight: 700;
+	font-size: 11px;
+}
+
+/* Carousel: horizontal scroll-snap track with previous/next controls */
+.collage-title {
+	margin: 0 0 0.15rem;
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--color-accent-2);
+}
+.carousel-heading {
+	margin: 0 0 0.75rem;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	color: var(--color-global-text);
+}
+.carousel-track {
+	display: flex;
+	gap: 0.7rem;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	padding-bottom: 0.1rem;
+	outline: none;
+}
+.carousel-track::-webkit-scrollbar {
+	display: none;
+}
+.carousel-track.align-start {
+	align-items: flex-start;
+	overflow-y: hidden;
+	transition: height 0.25s ease;
+}
+.carousel-slide {
+	flex: 0 0 100%;
+	scroll-snap-align: start;
+	display: flex;
+	flex-direction: column;
+}
+@media (min-width: 480px) {
+	.carousel-slide {
+		flex-basis: calc((100% - 0.7rem) / 2);
+	}
+}
+.carousel-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.6rem;
+	margin-top: 0.7rem;
+}
+.carousel-nav .caption {
+	flex: 1;
+	min-width: 0;
+	font-size: 0.72rem;
+	color: var(--collage-muted);
+}
+.carousel-nav .controls {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-size: 0.72rem;
+	color: var(--collage-muted);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+.carousel-nav button {
+	width: 1.9rem;
+	height: 1.9rem;
+	border-radius: 999px;
+	border: 1px solid var(--collage-border);
+	background: var(--collage-tile);
+	color: var(--color-accent-2);
+	font: inherit;
+	cursor: pointer;
+	line-height: 1;
+}
+.carousel-nav button:hover {
+	border-color: var(--good);
+	color: var(--good);
+}
+.carousel-nav button:disabled {
+	opacity: 0.35;
+	cursor: default;
+}
+
+/* Quote pages: a two-column wall of cards per slide */
+.quote-page {
+	columns: 1;
+	column-gap: 0.7rem;
+}
+@media (min-width: 480px) {
+	.quote-page {
+		columns: 2;
+	}
+}
+.quote-page .carousel-slide,
+.carousel-slide:has(.quote-page) {
+	flex-basis: 100%;
+}
+.quote-card {
+	break-inside: avoid;
+	margin: 0 0 0.7rem;
+	padding: 1.15rem 0.9rem 0.85rem;
+}
+.quote-card::before {
+	content: "\201C";
+	position: absolute;
+	top: 0.1rem;
+	left: 0.6rem;
+	font-size: 2.4rem;
+	line-height: 1;
+	color: var(--good);
+	opacity: 0.6;
+	font-family: Georgia, "Times New Roman", serif;
+}
+.quote-card p {
+	margin: 0.3rem 0 0;
+	font-size: 0.84rem;
+	line-height: 1.55;
+	color: var(--color-global-text);
+}
+.quote-card mark.kw {
+	background: none;
+	color: var(--kw);
+	font-weight: 600;
+}
+.quote-card .who {
+	margin-top: auto;
+	font-size: 0.68rem;
+	font-style: italic;
+	color: var(--collage-muted);
+}
+
+/* Spotlight mosaic: every quote as a thumbnail, a few enlarged at a time */
+.spotlight {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	grid-auto-rows: 2.8rem;
+	grid-auto-flow: dense;
+	gap: 0.45rem;
+}
+.spot-card {
+	position: relative;
+	overflow: hidden;
+	padding: 0.45rem 0.55rem;
+	text-align: left;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	appearance: none;
+	transition:
+		border-color 0.2s ease,
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+.spot-card:focus-visible {
+	outline: 2px solid var(--good);
+	outline-offset: 2px;
+}
+/* Thumbnails read as tappable: lift on hover, press on tap, and a green border just before they grow. */
+.spot-card:not(.featured):hover {
+	border-color: var(--good);
+	transform: translateY(-1px) scale(1.03);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+	z-index: 1;
+}
+.spot-card:not(.featured):hover p {
+	color: var(--color-global-text);
+}
+.spot-card:not(.featured):active {
+	transform: scale(0.97);
+}
+.spot-card.next {
+	border-color: var(--good);
+	box-shadow: inset 0 0 0 1px var(--good);
+}
+.spot-card p {
+	margin: 0;
+	font-size: 0.58rem;
+	line-height: 1.35;
+	color: var(--collage-muted);
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.spot-card p mark.kw {
+	background: none;
+	color: var(--kw);
+	font-weight: 600;
+}
+.spot-card.featured {
+	grid-column: span 3;
+	grid-row: span 3;
+	padding: 1.15rem 0.9rem 0.8rem;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+	cursor: default;
+}
+.spot-card.featured::before {
+	content: "\201C";
+	position: absolute;
+	top: 0.1rem;
+	left: 0.6rem;
+	font-size: 2.4rem;
+	line-height: 1;
+	color: var(--good);
+	opacity: 0.6;
+	font-family: Georgia, "Times New Roman", serif;
+}
+.spot-card.featured p {
+	font-size: 0.84rem;
+	line-height: 1.55;
+	color: var(--color-global-text);
+	-webkit-line-clamp: 6;
+}
+/* Dwell progress: a hairline that fills over one hold, so the next change is predictable. */
+.spot-progress {
+	height: 2px;
+	margin: 0.7rem 0 0;
+	border-radius: 999px;
+	background: var(--collage-border);
+	overflow: hidden;
+}
+.spot-progress span {
+	display: block;
+	height: 100%;
+	width: 0;
+	background: var(--good);
+}
+.spot-progress.running span {
+	animation: spot-progress var(--hold, 4000ms) linear forwards;
+}
+@keyframes spot-progress {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+[data-spotlight].paused .spot-progress {
+	opacity: 0.4;
+}
+[data-spotlight] .carousel-nav button[data-play] {
+	font-size: 0.6rem;
+}
+@media (max-width: 479px) {
+	.spotlight {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+	.spot-card.featured {
+		grid-column: span 4;
+	}
+}
+/* Morph timing for the spotlight cards only; page navigations keep the site default. */
+::view-transition-group(.spot-card) {
+	animation-duration: 0.65s;
+	animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+::view-transition-old(.spot-card),
+::view-transition-new(.spot-card) {
+	animation-duration: 0.35s;
+}
+
+/* Progression pages: two columns, two rows per slide */
+.progress-page {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 1fr;
+	gap: 0.7rem;
+}
+@media (min-width: 480px) {
+	.progress-page {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+.carousel-slide:has(.progress-page) {
+	flex-basis: 100%;
+}
+/* Progression cards */
+.progress-card {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	min-height: 7.5rem;
+}
+.progress-card .head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+.progress-card .ex {
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: var(--color-accent-2);
+	line-height: 1.3;
+}
+.progress-card .gain {
+	flex: none;
+	font-size: 0.66rem;
+	font-weight: 600;
+	color: var(--good);
+	background: var(--good-wash);
+	border-radius: 999px;
+	padding: 0.1rem 0.5rem;
+	white-space: nowrap;
+}
+.progress-card .big {
+	display: flex;
+	align-items: baseline;
+	gap: 0.2rem;
+	margin: 0.35rem 0 0.3rem;
+	line-height: 1;
+}
+.progress-card .from {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--collage-muted);
+	letter-spacing: -0.02em;
+}
+.progress-card .arrow {
+	color: var(--good);
+	font-size: 0.95rem;
+	margin: 0 0.15rem;
+}
+.progress-card .to {
+	font-size: 1.85rem;
+	font-weight: 700;
+	color: var(--color-accent-2);
+	letter-spacing: -0.03em;
+}
+.progress-card .unit {
+	font-size: 0.74rem;
+	font-weight: 500;
+	color: var(--collage-muted);
+	margin-left: 0.2rem;
+}
+.progress-card .bar {
+	display: flex;
+	height: 6px;
+	border-radius: 999px;
+	overflow: hidden;
+	background: var(--collage-board);
+	margin: 0.1rem 0 auto;
+}
+.progress-card .bar .was {
+	background: var(--good-soft);
+}
+.progress-card .bar .now {
+	background: var(--good);
+}
+.progress-card .who {
+	margin-top: 0.55rem;
+	font-size: 0.68rem;
+	font-style: italic;
+	color: var(--collage-muted);
+}

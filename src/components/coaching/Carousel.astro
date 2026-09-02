@@ -1,0 +1,78 @@
+---
+// Horizontal scroll-snap carousel with previous/next controls; children must carry the carousel-slide class.
+interface Props {
+	label: string;
+	title?: string;
+	heading?: string;
+	caption?: string;
+	align?: "stretch" | "start";
+}
+const { label, title, heading, caption, align = "stretch" } = Astro.props;
+---
+
+<div class="collage not-prose" data-carousel aria-roledescription="carousel" aria-label={label}>
+	<div class="collage-board">
+		{title && <h3 class="collage-title">{title}</h3>}
+		{heading && <p class="carousel-heading">{heading}</p>}
+		<div class:list={["carousel-track", { "align-start": align === "start" }]} tabindex="0"><slot /></div>
+		<div class="carousel-nav">
+			<span class="caption">{caption ?? ""}</span>
+			<span class="controls">
+				<button type="button" data-prev aria-label="Previous">←</button>
+				<span data-count aria-live="polite"></span>
+				<button type="button" data-next aria-label="Next">→</button>
+			</span>
+		</div>
+	</div>
+</div>
+
+<script>
+	function setUp(root: HTMLElement) {
+		const track = root.querySelector<HTMLElement>(".carousel-track")!;
+		const slides = Array.from(track.children) as HTMLElement[];
+		const prev = root.querySelector<HTMLButtonElement>("[data-prev]")!;
+		const next = root.querySelector<HTMLButtonElement>("[data-next]")!;
+		const count = root.querySelector<HTMLElement>("[data-count]")!;
+
+		const current = () => {
+			const left = track.scrollLeft;
+			let best = 0;
+			slides.forEach((s, i) => {
+				if (Math.abs(s.offsetLeft - track.offsetLeft - left) < Math.abs(slides[best]!.offsetLeft - track.offsetLeft - left)) best = i;
+			});
+			return best;
+		};
+		const visible = () => Math.max(1, Math.round(track.clientWidth / (slides[0]!.offsetWidth + 11)));
+		const fitHeight = () => {
+			// Content-sized slides: let the track follow the tallest slide currently in view.
+			if (!track.classList.contains("align-start")) return;
+			const left = track.scrollLeft, right = left + track.clientWidth;
+			const inView = slides.filter((s) => {
+				const a = s.offsetLeft - track.offsetLeft, b = a + s.offsetWidth;
+				return b > left + 4 && a < right - 4;
+			});
+			if (inView.length) track.style.height = `${Math.max(...inView.map((s) => s.offsetHeight))}px`;
+		};
+		const update = () => {
+			const i = current();
+			count.textContent = `${i + 1} / ${slides.length}`;
+			prev.disabled = i === 0;
+			next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+			fitHeight();
+		};
+		const goTo = (i: number) => {
+			const target = slides[Math.max(0, Math.min(slides.length - 1, i))]!;
+			track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: "smooth" });
+		};
+		prev.addEventListener("click", () => goTo(current() - visible()));
+		next.addEventListener("click", () => goTo(current() + visible()));
+		track.addEventListener("keydown", (e) => {
+			if (e.key === "ArrowRight") goTo(current() + 1);
+			if (e.key === "ArrowLeft") goTo(current() - 1);
+		});
+		track.addEventListener("scroll", update, { passive: true });
+		window.addEventListener("resize", update);
+		update();
+	}
+	document.querySelectorAll<HTMLElement>("[data-carousel]").forEach(setUp);
+</script>
