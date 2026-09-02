@@ -5,7 +5,7 @@
 interface Props {
 	label: string;
 	title: string;
-	heading: string;
+	heading?: string;
 	hint: string;
 }
 const { label, title, heading, hint } = Astro.props;
@@ -14,7 +14,7 @@ const { label, title, heading, hint } = Astro.props;
 <div class="collage not-prose" data-spotlight aria-label={label}>
 	<div class="collage-board">
 		<h3 class="collage-title">{title}</h3>
-		<p class="carousel-heading">{heading}</p>
+		{heading && <p class="carousel-heading">{heading}</p>}
 		<div class="spotlight" role="list"><slot /></div>
 		<div class="spot-progress" aria-hidden="true"><span></span></div>
 		<div class="carousel-nav">
