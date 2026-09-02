@@ -60,6 +60,18 @@
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
+.weight-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 0.4rem;
+}
+.weight-who {
+	font-size: 0.68rem;
+	color: var(--collage-muted);
+	white-space: nowrap;
+	padding-top: 0.15rem;
+}
 .weight-delta {
 	font-weight: 700;
 	font-size: 1.25rem;

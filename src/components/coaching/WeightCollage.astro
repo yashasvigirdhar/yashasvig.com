@@ -45,6 +45,7 @@ const tiles = data.weight.map((w, idx) => {
 	const path = smoothPath(px, py);
 	return {
 		idx,
+		who: w.who,
 		delta: w.delta,
 		weeks: w.weeks,
 		start: w.start,
@@ -64,9 +65,12 @@ const tiles = data.weight.map((w, idx) => {
 			{
 				tiles.map((t) => (
 					<div class="collage-tile weight-tile">
-						<div class="weight-delta">
-							{t.delta < 0 ? "−" : "+"}{fmt(Math.abs(t.delta))}<small>kg</small>
-							<span class="in">in {t.weeks} weeks</span>
+						<div class="weight-top">
+							<div class="weight-delta">
+								{t.delta < 0 ? "−" : "+"}{fmt(Math.abs(t.delta))}<small>kg</small>
+								<span class="in">in {t.weeks} weeks</span>
+							</div>
+							{t.who && <span class="weight-who">{t.who}</span>}
 						</div>
 						<svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Weight ${fmt(t.start)} to ${fmt(t.end)} kg over ${t.weeks} weeks`}>
 							<defs>
