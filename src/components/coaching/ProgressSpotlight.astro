@@ -36,9 +36,10 @@ const FEATURED_AT_START = 3;
 						<span class="to">{fmt(x.to)}</span>
 						<span class="unit">{x.unit}</span>
 					</div>
-					<div class="bars" aria-hidden="true" style={`--was:${wasPct}%`}>
-						<span class="was" />
-						<span class="now" />
+					<div class="track" aria-hidden="true" style={`--was:${wasPct}%`}>
+						<span class="from-dot" />
+						<span class="gain-line" />
+						<span class="to-dot" />
 					</div>
 				</button>
 			);
