@@ -425,7 +425,7 @@
 	font-size: 0.5rem;
 }
 .spot-card.progress-card:not(.featured) .gain,
-.spot-card.progress-card:not(.featured) .bar {
+.spot-card.progress-card:not(.featured) .bars {
 	display: none;
 }
 .spot-card.progress-card:not(.featured):hover .ex {
@@ -514,19 +514,41 @@
 	color: var(--collage-muted);
 	margin-left: 0.2rem;
 }
-.progress-card .bar {
+/* Before and after as two left-aligned bars: a short muted one for the first session, a full green one for now. */
+.progress-card .bars {
 	display: flex;
-	height: 6px;
-	border-radius: 999px;
-	overflow: hidden;
-	background: var(--collage-board);
-	margin: 0.1rem 0 auto;
+	flex-direction: column;
+	gap: 3px;
+	margin: 0.15rem 0 auto;
 }
-.progress-card .bar .was {
+.progress-card .bars span {
+	display: block;
+	height: 5px;
+	border-radius: 999px;
+}
+.progress-card .bars .was {
+	width: var(--was, 0%);
 	background: var(--good-soft);
 }
-.progress-card .bar .now {
+.progress-card .bars .now {
+	width: 100%;
 	background: var(--good);
+}
+.spot-card.progress-card.featured .bars .now {
+	animation: bar-grow 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes bar-grow {
+	from {
+		width: var(--was, 0%);
+	}
+	to {
+		width: 100%;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.spot-card.progress-card.featured .bars .now {
+		animation: none;
+	}
 }
 .progress-card .who {
 	margin-top: 0.55rem;

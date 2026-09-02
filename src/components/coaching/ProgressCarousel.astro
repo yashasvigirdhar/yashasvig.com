@@ -29,9 +29,9 @@ for (let i = 0; i < data.progressions.length; i += PER_PAGE) pages.push(data.pro
 							<span class="to">{fmt(x.to)}</span>
 							<span class="unit">{x.unit}</span>
 						</div>
-						<div class="bar" aria-hidden="true">
-							<span class="was" style={`width:${wasPct}%`} />
-							<span class="now" style={`width:${100 - wasPct}%`} />
+						<div class="bars" aria-hidden="true" style={`--was:${wasPct}%`}>
+							<span class="was" />
+							<span class="now" />
 						</div>
 					</div>
 			);
