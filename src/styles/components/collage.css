@@ -365,8 +365,11 @@
 		width: 100%;
 	}
 }
+[data-spotlight].halted .spot-progress span {
+	animation-play-state: paused;
+}
 [data-spotlight].paused .spot-progress {
-	opacity: 0.4;
+	opacity: 0.5;
 }
 [data-spotlight] .carousel-nav button[data-play] {
 	font-size: 0.6rem;

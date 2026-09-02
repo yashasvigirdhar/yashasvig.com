@@ -56,7 +56,6 @@ const FEATURED_AT_START = 3;
 		let start = 0;
 		let timer: number | undefined;
 		let cueTimer: number | undefined;
-		let hovering = false;
 		let userPaused = reduceMotion;
 		let inView = false;
 
@@ -74,11 +73,11 @@ const FEATURED_AT_START = 3;
 			else apply();
 		};
 
-		const running = () => !userPaused && !hovering && inView;
+		const running = () => !userPaused && inView;
 		const restartProgress = () => {
 			progress.classList.remove("running");
 			void progress.offsetWidth;
-			if (running()) progress.classList.add("running");
+			progress.classList.add("running");
 		};
 		const cue = () => {
 			if (!running()) return;
@@ -88,8 +87,10 @@ const FEATURED_AT_START = 3;
 			window.clearTimeout(timer);
 			window.clearTimeout(cueTimer);
 			cards.forEach((card) => card.classList.remove("next"));
-			restartProgress();
+			// While halted (paused or off screen) the bar freezes where it is; a fresh hold restarts it from zero.
+			root.classList.toggle("halted", !running());
 			if (!running()) return;
+			restartProgress();
 			cueTimer = window.setTimeout(cue, HOLD_MS - CUE_MS);
 			timer = window.setTimeout(() => {
 				show(start + count());
@@ -115,8 +116,6 @@ const FEATURED_AT_START = 3;
 		root.querySelector("[data-prev]")!.addEventListener("click", () => { show(start - count()); schedule(); });
 		root.querySelector("[data-next]")!.addEventListener("click", () => { show(start + count()); schedule(); });
 		playBtn.addEventListener("click", () => setPaused(!userPaused));
-		root.addEventListener("mouseenter", () => { hovering = true; schedule(); });
-		root.addEventListener("mouseleave", () => { hovering = false; schedule(); });
 		new IntersectionObserver((entries) => {
 			entries.forEach((e) => { inView = e.isIntersecting; });
 			schedule();
