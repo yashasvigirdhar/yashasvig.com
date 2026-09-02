@@ -303,18 +303,18 @@
 	color: var(--kw);
 	font-weight: 600;
 }
-/* Keyword colours cycle card by card, so neighbouring cards differ. */
-[data-kw="1"] mark.kw {
-	color: var(--kw-1);
+/* Keyword colours cycle card by card, so neighbouring cards differ. The card sets --kw, which the marks inherit. */
+[data-kw="1"] {
+	--kw: var(--kw-1);
 }
-[data-kw="2"] mark.kw {
-	color: var(--kw-2);
+[data-kw="2"] {
+	--kw: var(--kw-2);
 }
-[data-kw="3"] mark.kw {
-	color: var(--kw-3);
+[data-kw="3"] {
+	--kw: var(--kw-3);
 }
-[data-kw="4"] mark.kw {
-	color: var(--kw-4);
+[data-kw="4"] {
+	--kw: var(--kw-4);
 }
 .spot-card.featured {
 	grid-column: span 3;
