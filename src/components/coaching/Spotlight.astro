@@ -1,0 +1,118 @@
+---
+// Mosaic of cards with a rotating spotlight: a few grow to readable size, hold, shrink back, and the next
+// few take over. Children must be .spot-card buttons carrying data-i; a tap restarts the hold from that
+// card. Layout changes are morphed with the View Transitions API where available.
+interface Props {
+	label: string;
+	title: string;
+	heading: string;
+	hint: string;
+}
+const { label, title, heading, hint } = Astro.props;
+---
+
+<div class="collage not-prose" data-spotlight aria-label={label}>
+	<div class="collage-board">
+		<h3 class="collage-title">{title}</h3>
+		<p class="carousel-heading">{heading}</p>
+		<div class="spotlight" role="list"><slot /></div>
+		<div class="spot-progress" aria-hidden="true"><span></span></div>
+		<div class="carousel-nav">
+			<span class="caption">{hint}</span>
+			<span class="controls">
+				<button type="button" data-prev aria-label="Previous">←</button>
+				<button type="button" data-play aria-label="Pause" aria-pressed="false">❚❚</button>
+				<button type="button" data-next aria-label="Next">→</button>
+			</span>
+		</div>
+	</div>
+</div>
+
+<script>
+	const HOLD_MS = 4000;
+	const CUE_MS = 700;
+
+	function setUp(root: HTMLElement) {
+		const cards = Array.from(root.querySelectorAll<HTMLElement>(".spot-card"));
+		const total = cards.length;
+		const progress = root.querySelector<HTMLElement>(".spot-progress")!;
+		const playBtn = root.querySelector<HTMLButtonElement>("[data-play]")!;
+		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const count = () => (root.clientWidth < 480 ? 2 : 3);
+		let start = 0;
+		let timer: number | undefined;
+		let cueTimer: number | undefined;
+		let userPaused = reduceMotion;
+		let inView = false;
+
+		const inSet = (i: number, from: number) => (i - from + total) % total < count();
+		const apply = () => {
+			cards.forEach((card, i) => {
+				card.classList.toggle("featured", inSet(i, start));
+				card.classList.remove("next");
+			});
+		};
+		const show = (next: number) => {
+			start = ((next % total) + total) % total;
+			const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+			if (!reduceMotion && doc.startViewTransition) doc.startViewTransition(apply);
+			else apply();
+		};
+
+		const running = () => !userPaused && inView;
+		const restartProgress = () => {
+			progress.classList.remove("running");
+			void progress.offsetWidth;
+			progress.classList.add("running");
+		};
+		const cue = () => {
+			if (!running()) return;
+			cards.forEach((card, i) => card.classList.toggle("next", inSet(i, start + count())));
+		};
+		const schedule = () => {
+			window.clearTimeout(timer);
+			window.clearTimeout(cueTimer);
+			cards.forEach((card) => card.classList.remove("next"));
+			// While halted (paused or off screen) the bar freezes where it is; a fresh hold restarts it from zero.
+			root.classList.toggle("halted", !running());
+			if (!running()) return;
+			restartProgress();
+			cueTimer = window.setTimeout(cue, HOLD_MS - CUE_MS);
+			timer = window.setTimeout(() => {
+				show(start + count());
+				schedule();
+			}, HOLD_MS);
+		};
+		const setPaused = (value: boolean) => {
+			userPaused = value;
+			playBtn.textContent = value ? "▶" : "❚❚";
+			playBtn.setAttribute("aria-label", value ? "Play" : "Pause");
+			playBtn.setAttribute("aria-pressed", String(value));
+			root.classList.toggle("paused", value);
+			schedule();
+		};
+
+		cards.forEach((card, i) => {
+			card.addEventListener("click", () => {
+				if (card.classList.contains("featured")) return;
+				show(i);
+				schedule();
+			});
+		});
+		root.querySelector("[data-prev]")!.addEventListener("click", () => { show(start - count()); schedule(); });
+		root.querySelector("[data-next]")!.addEventListener("click", () => { show(start + count()); schedule(); });
+		playBtn.addEventListener("click", () => setPaused(!userPaused));
+		new IntersectionObserver((entries) => {
+			entries.forEach((e) => { inView = e.isIntersecting; });
+			schedule();
+		}, { threshold: 0.4 }).observe(root);
+		window.addEventListener("resize", apply);
+
+		progress.style.setProperty("--hold", `${HOLD_MS}ms`);
+		if (reduceMotion) setPaused(true);
+		apply();
+		schedule();
+	}
+
+	document.querySelectorAll<HTMLElement>("[data-spotlight]").forEach(setUp);
+</script>
