@@ -8,6 +8,10 @@
 	--collage-border: oklch(90% 0 0);
 	--collage-muted: oklch(55% 0.01 235);
 	--kw: oklch(48% 0.16 292);
+	--kw-1: oklch(48% 0.16 292);
+	--kw-2: oklch(58% 0.14 163.7);
+	--kw-3: oklch(55% 0.19 19);
+	--kw-4: oklch(52% 0.15 250);
 	margin-block: 2.25rem;
 	font-size: 0.875rem;
 	line-height: 1.5;
@@ -21,6 +25,10 @@
 	--collage-border: oklch(33% 0.004 248);
 	--collage-muted: oklch(65% 0 264);
 	--kw: oklch(78% 0.12 292);
+	--kw-1: oklch(78% 0.12 292);
+	--kw-2: oklch(70% 0.14 163.7);
+	--kw-3: oklch(72% 0.12 349);
+	--kw-4: oklch(76% 0.11 240);
 }
 .collage-board {
 	padding: 0.9rem;
@@ -294,6 +302,19 @@
 	background: none;
 	color: var(--kw);
 	font-weight: 600;
+}
+/* Keyword colours cycle card by card, so neighbouring cards differ. */
+[data-kw="1"] mark.kw {
+	color: var(--kw-1);
+}
+[data-kw="2"] mark.kw {
+	color: var(--kw-2);
+}
+[data-kw="3"] mark.kw {
+	color: var(--kw-3);
+}
+[data-kw="4"] mark.kw {
+	color: var(--kw-4);
 }
 .spot-card.featured {
 	grid-column: span 3;

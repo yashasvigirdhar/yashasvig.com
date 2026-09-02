@@ -15,8 +15,8 @@ for (let i = 0; i < data.quotes.length; i += PER_PAGE) pages.push(data.quotes.sl
 		pages.map((page) => (
 			<div class="carousel-slide">
 				<div class="quote-page">
-					{page.map((q) => (
-						<figure class="collage-tile quote-card">
+					{page.map((q, j) => (
+						<figure class="collage-tile quote-card" data-kw={((pages.indexOf(page) * PER_PAGE + j) % 4) + 1}>
 							<p>{segments(q.text).map((seg, i) => (i % 2 ? <mark class="kw">{seg}</mark> : seg))}</p>
 						</figure>
 					))}

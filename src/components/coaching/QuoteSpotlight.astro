@@ -21,6 +21,7 @@ const FEATURED_AT_START = 3;
 						class:list={["collage-tile", "spot-card", { featured: i < FEATURED_AT_START }]}
 						role="listitem"
 						data-i={i}
+						data-kw={(i % 4) + 1}
 						style={`view-transition-name: spot-card-${i}; view-transition-class: spot-card;`}
 						aria-label="Read this excerpt"
 					>
