@@ -1,7 +1,7 @@
 ---
 // Mosaic of all client check-in excerpts with a rotating spotlight: a few cards grow to readable size,
-// hold, shrink back, and the next few take over. Readers can tap any card, step, or pause; a tap pauses
-// the rotation. Layout changes are morphed with the View Transitions API where available.
+// hold, shrink back, and the next few take over. Readers can tap any card, step, or pause; a tap restarts
+// the hold from that card. Layout changes are morphed with the View Transitions API where available.
 import data from "@/data/coaching-year-one.json";
 
 // ==phrase== in the curated text marks a keyword to colour.
@@ -109,7 +109,7 @@ const FEATURED_AT_START = 3;
 			card.addEventListener("click", () => {
 				if (card.classList.contains("featured")) return;
 				show(i);
-				setPaused(true);
+				schedule();
 			});
 		});
 		root.querySelector("[data-prev]")!.addEventListener("click", () => { show(start - count()); schedule(); });
