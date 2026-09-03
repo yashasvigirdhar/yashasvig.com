@@ -67,6 +67,7 @@
 	gap: 0.4rem;
 }
 .weight-who {
+	flex: none;
 	font-size: 0.68rem;
 	color: var(--collage-muted);
 	white-space: nowrap;
@@ -87,6 +88,7 @@
 }
 .weight-delta .in {
 	display: block;
+	white-space: nowrap;
 	font-weight: 500;
 	font-size: 0.68rem;
 	letter-spacing: 0;
@@ -351,6 +353,21 @@
 	line-height: 1.55;
 	color: var(--color-global-text);
 	-webkit-line-clamp: 6;
+}
+.spot-card .who {
+	display: none;
+}
+.spot-card.quote-spot.featured {
+	display: flex;
+	flex-direction: column;
+}
+.spot-card.quote-spot.featured .who {
+	display: block;
+	margin-top: auto;
+	padding-top: 0.5rem;
+	text-align: right;
+	font-size: 0.66rem;
+	color: var(--collage-muted);
 }
 /* Dwell progress: a hairline that fills over one hold, so the next change is predictable. */
 .spot-progress {

@@ -25,6 +25,7 @@ const FEATURED_AT_START = 3;
 				aria-label="Read this excerpt"
 			>
 				<p>{segments(q.text).map((seg, j) => (j % 2 ? <mark class="kw">{seg}</mark> : seg))}</p>
+				{q.who && <span class="who">{q.who}</span>}
 			</button>
 		))
 	}
