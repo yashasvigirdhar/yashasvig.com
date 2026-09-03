@@ -43,7 +43,7 @@ const tiles = data.progressions.map((x) => {
 			>
 				<div class="ex">
 					<span>{t.exercise}</span>
-					<span class="gain">{t.gain === null ? "from zero" : `+${t.gain}%`}{t.weeks > 0 && ` in ${t.weeks} weeks`}</span>
+					<span class="gain">{t.gain === null ? "from zero" : `+${t.gain}%`}{t.weeks >= 4 && ` in ${t.weeks} weeks`}</span>
 				</div>
 				<svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
 					<path class="curve" d={t.path} pathLength="1" />
