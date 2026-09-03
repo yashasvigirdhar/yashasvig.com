@@ -27,3 +27,4 @@ pnpm-debug.log*
 coaching-year-one/data/
 coaching-year-one/config.local.json
 coaching-year-one/mockups/*-data.js
+__pycache__/
