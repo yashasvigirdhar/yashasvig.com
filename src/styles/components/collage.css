@@ -474,7 +474,7 @@
 .spot-card.progress-card.featured {
 	display: flex;
 	flex-direction: column;
-	padding: 0.8rem 0.85rem 0.6rem;
+	padding: 0.8rem 0.85rem 0.75rem;
 	cursor: default;
 }
 .spot-card.progress-card.featured::before {
@@ -500,7 +500,7 @@
 	white-space: nowrap;
 }
 .spot-card.progress-card.featured svg {
-	margin-top: 0.5rem;
+	margin-top: 0.4rem;
 }
 .spot-card.progress-card.featured .dot,
 .spot-card.progress-card.featured .lbl {
