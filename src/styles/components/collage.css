@@ -431,7 +431,9 @@
 	gap: 0;
 	padding: 0.4rem 0.5rem;
 }
+/* The name and the chart must never be flex-shrunk; the ellipsis overflow would otherwise let the name collapse. */
 .spot-card.progress-card .ex {
+	flex: none;
 	font-size: 0.58rem;
 	font-weight: 500;
 	line-height: 1.25;
@@ -444,11 +446,16 @@
 	display: none;
 }
 .spot-card.progress-card svg {
+	flex: none;
 	display: block;
 	width: 100%;
 	height: auto;
 	overflow: visible;
 	margin-top: 0.1rem;
+}
+/* Strength thumbnails need room for a name plus a chart, so this mosaic gets taller rows. */
+.spotlight:has(.progress-card) {
+	grid-auto-rows: 3.3rem;
 }
 .spot-card.progress-card .curve {
 	fill: none;
@@ -482,6 +489,7 @@
 	font-weight: 600;
 	color: var(--color-accent-2);
 	white-space: normal;
+	overflow: visible;
 }
 .spot-card.progress-card.featured .gain {
 	display: inline;
