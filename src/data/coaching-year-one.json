@@ -589,7 +589,8 @@
       "from": 0,
       "to": 6,
       "unit": "reps",
-      "who": "Dad of a four-year-old",
+      "who": "Male, 36",
+      "weeks": 19,
       "kind": "goal",
       "points": [
         [
@@ -607,7 +608,8 @@
       "from": 0,
       "to": 5,
       "unit": "reps",
-      "who": "Travels a lot, trains around it",
+      "who": "Female, 31",
+      "weeks": 7,
       "kind": "goal",
       "points": [
         [
@@ -625,7 +627,8 @@
       "from": 6,
       "to": 10,
       "unit": "reps",
-      "who": "Chasing ten pull-ups",
+      "who": "Male, 31",
+      "weeks": 2,
       "kind": "goal",
       "points": [
         [
@@ -643,7 +646,8 @@
       "from": 25,
       "to": 45,
       "unit": "kg",
-      "who": "Runs in the park with her puppy",
+      "who": "Female, 32",
+      "weeks": 21,
       "kind": "reported",
       "points": [
         [
@@ -661,7 +665,8 @@
       "from": 30.0,
       "to": 50.0,
       "unit": "kg",
-      "who": "Never liked the gym, until now",
+      "who": "Female, 31",
+      "weeks": 11,
       "kind": "weight",
       "points": [
         [
@@ -703,7 +708,8 @@
       "from": 105.0,
       "to": 145.0,
       "unit": "lb",
-      "who": "Dad of a four-year-old",
+      "who": "Male, 36",
+      "weeks": 18,
       "kind": "weight",
       "points": [
         [
@@ -761,7 +767,8 @@
       "from": 115.0,
       "to": 165.0,
       "unit": "lb",
-      "who": "Dad of a four-year-old",
+      "who": "Male, 36",
+      "weeks": 14,
       "kind": "weight",
       "points": [
         [
@@ -815,7 +822,8 @@
       "from": 95.0,
       "to": 125.0,
       "unit": "lb",
-      "who": "Dad of a four-year-old",
+      "who": "Male, 36",
+      "weeks": 15,
       "kind": "weight",
       "points": [
         [
@@ -901,7 +909,8 @@
       "from": 85.0,
       "to": 132.0,
       "unit": "lb",
-      "who": "Dad of a four-year-old",
+      "who": "Male, 36",
+      "weeks": 19,
       "kind": "weight",
       "points": [
         [
@@ -959,7 +968,8 @@
       "from": 20.0,
       "to": 35.0,
       "unit": "lb",
-      "who": "Dad of a four-year-old",
+      "who": "Male, 36",
+      "weeks": 19,
       "kind": "weight",
       "points": [
         [
@@ -1045,7 +1055,8 @@
       "from": 20.0,
       "to": 35.0,
       "unit": "kg",
-      "who": "Full-time job plus weekend classes",
+      "who": "Male, 28",
+      "weeks": 5,
       "kind": "weight",
       "points": [
         [
@@ -1095,7 +1106,8 @@
       "from": 42.0,
       "to": 56.0,
       "unit": "kg",
-      "who": "Full-time job plus weekend classes",
+      "who": "Male, 28",
+      "weeks": 7,
       "kind": "weight",
       "points": [
         [
@@ -1153,7 +1165,8 @@
       "from": 42.0,
       "to": 52.0,
       "unit": "kg",
-      "who": "Full-time job plus weekend classes",
+      "who": "Male, 28",
+      "weeks": 8,
       "kind": "weight",
       "points": [
         [
@@ -1211,7 +1224,8 @@
       "from": 36.5,
       "to": 56.6,
       "unit": "kg",
-      "who": "Wants to build, not shrink",
+      "who": "Female, 30",
+      "weeks": 1,
       "kind": "weight",
       "points": [
         [
@@ -1293,7 +1307,8 @@
       "from": 18.0,
       "to": 32.0,
       "unit": "kg",
-      "who": "Wants to build, not shrink",
+      "who": "Female, 30",
+      "weeks": 10,
       "kind": "weight",
       "points": [
         [
@@ -1339,7 +1354,8 @@
       "from": 50.0,
       "to": 70.0,
       "unit": "kg",
-      "who": "Has energy left for the rest of the day",
+      "who": "Female, 33",
+      "weeks": 16,
       "kind": "weight",
       "points": [
         [
@@ -1393,7 +1409,8 @@
       "from": 4.0,
       "to": 10.0,
       "unit": "kg",
-      "who": "Has energy left for the rest of the day",
+      "who": "Female, 33",
+      "weeks": 6,
       "kind": "weight",
       "points": [
         [
@@ -1439,7 +1456,8 @@
       "from": 25.0,
       "to": 40.0,
       "unit": "kg",
-      "who": "Forty-one and jogging again",
+      "who": "Male, 41",
+      "weeks": 1,
       "kind": "weight",
       "points": [
         [
@@ -1485,7 +1503,8 @@
       "from": 15.0,
       "to": 25.0,
       "unit": "kg",
-      "who": "Forty-one and jogging again",
+      "who": "Male, 41",
+      "weeks": 2,
       "kind": "weight",
       "points": [
         [
