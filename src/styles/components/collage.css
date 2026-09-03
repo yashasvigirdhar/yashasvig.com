@@ -1,5 +1,6 @@
 /* Client-progress collages used in coaching posts: shared board, tile, carousel and green accent roles. */
-.collage {
+.collage,
+.closing {
 	--good: oklch(58% 0.14 163.7);
 	--good-soft: oklch(76% 0.115 163.7);
 	--good-wash: oklch(58% 0.14 163.7 / 0.12);
@@ -16,7 +17,8 @@
 	font-size: 0.875rem;
 	line-height: 1.5;
 }
-[data-theme="dark"] .collage {
+[data-theme="dark"] .collage,
+[data-theme="dark"] .closing {
 	--good: oklch(66% 0.14 163.7);
 	--good-soft: oklch(48.5% 0.115 163.7);
 	--good-wash: oklch(66% 0.14 163.7 / 0.14);
@@ -707,4 +709,29 @@
 	font-size: 0.68rem;
 	font-style: italic;
 	color: var(--collage-muted);
+}
+
+/* Closing note: a quiet card with the collage green as its edge, so the last paragraph reads as the point of the post. */
+.closing {
+	margin: 2.5rem 0 1rem;
+	padding: 1.1rem 1.25rem;
+	border-left: 3px solid var(--good);
+	border-radius: 0 12px 12px 0;
+	background: var(--collage-board);
+	font-size: 0.95rem;
+	line-height: 1.7;
+	color: var(--color-global-text);
+}
+.closing p {
+	margin: 0 0 0.8em;
+}
+.closing p:last-child {
+	margin: 0;
+}
+.closing a {
+	color: var(--good);
+	font-weight: 600;
+	text-decoration: underline;
+	text-decoration-color: var(--good);
+	text-underline-offset: 3px;
 }
