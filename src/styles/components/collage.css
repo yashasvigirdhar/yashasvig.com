@@ -419,8 +419,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.spot-card.progress-card .head,
-.spot-card.progress-card .sub {
+.spot-card.progress-card .gain {
 	display: none;
 }
 .spot-card.progress-card svg {
@@ -437,9 +436,6 @@
 	stroke-linejoin: round;
 	stroke-linecap: round;
 }
-.spot-card.progress-card .curve.dashed {
-	stroke-dasharray: 0.04 0.04;
-}
 .spot-card.progress-card .dot,
 .spot-card.progress-card .lbl {
 	display: none;
@@ -448,7 +444,6 @@
 	color: var(--color-global-text);
 }
 .spot-card.progress-card.featured {
-	grid-row: span 4;
 	padding: 0.8rem 0.85rem 0.6rem;
 	cursor: default;
 }
@@ -456,41 +451,24 @@
 	content: none;
 }
 .spot-card.progress-card.featured .ex {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 0.5rem;
 	font-size: 0.88rem;
 	font-weight: 600;
 	color: var(--color-accent-2);
 	white-space: normal;
 }
-.spot-card.progress-card.featured .head {
-	display: flex;
-	align-items: baseline;
-	gap: 0.3rem;
-	margin-top: 0.3rem;
-	line-height: 1;
-}
-.spot-card.progress-card.featured .from {
-	font-size: 0.8rem;
-	color: var(--collage-muted);
-}
-.spot-card.progress-card.featured .to {
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: var(--color-accent-2);
-	letter-spacing: -0.02em;
-}
-.spot-card.progress-card.featured .unit {
-	font-size: 0.72rem;
-	color: var(--collage-muted);
-}
-.spot-card.progress-card.featured .sub {
-	display: block;
-	margin-top: 0.15rem;
+.spot-card.progress-card.featured .gain {
+	display: inline;
+	flex: none;
 	font-size: 0.68rem;
 	font-weight: 600;
 	color: var(--good);
 }
 .spot-card.progress-card.featured svg {
-	margin-top: 0.4rem;
+	margin-top: 0.5rem;
 }
 .spot-card.progress-card.featured .dot,
 .spot-card.progress-card.featured .lbl {
@@ -514,7 +492,7 @@
 	font-size: 11px;
 }
 /* Featured: the line draws itself from the first session to now, then the end dot and number appear. */
-.spot-card.progress-card.featured .curve:not(.dashed) {
+.spot-card.progress-card.featured .curve {
 	stroke-dasharray: 1;
 	stroke-dashoffset: 1;
 	animation: draw-line 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s forwards;
@@ -535,7 +513,7 @@
 	}
 }
 @media (prefers-reduced-motion: reduce) {
-	.spot-card.progress-card.featured .curve:not(.dashed) {
+	.spot-card.progress-card.featured .curve {
 		stroke-dashoffset: 0;
 		animation: none;
 	}
@@ -545,12 +523,6 @@
 		animation: none;
 	}
 }
-@media (max-width: 479px) {
-	.spot-card.progress-card.featured {
-		grid-row: span 4;
-	}
-}
-
 /* Progression pages: two columns, two rows per slide */
 .progress-page {
 	display: grid;
