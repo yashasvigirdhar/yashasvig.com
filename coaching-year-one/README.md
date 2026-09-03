@@ -1,7 +1,7 @@
 # Coaching, year one: client-wins data and mockups
 
-Working folder for the "Nearly One Year as a Fitness Coach" post
-(`src/content/post/nearly-one-year-as-a-fitness-coach.mdx`). It holds the raw
+Working folder for the "One Year as a Fitness Coach" post
+(`src/content/post/one-year-as-a-fitness-coach.mdx`). It holds the raw
 client-progress data pulled from the Assistant Coach production database and
 the HTML mockups for how those wins could appear in the post.
 
