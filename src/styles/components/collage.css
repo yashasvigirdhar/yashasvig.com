@@ -60,18 +60,17 @@
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
-.weight-top {
+.weight-foot {
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	gap: 0.4rem;
+	justify-content: flex-end;
+	margin-top: 0.4rem;
 }
 /* Person label (gender, age): a small chip so it reads as a fact about the person, not a footnote. */
 .weight-who,
 .spot-card.quote-spot.featured .who {
 	flex: none;
 	align-self: flex-start;
-	font-size: 0.7rem;
+	font-size: 0.66rem;
 	font-weight: 600;
 	color: var(--color-accent-2);
 	background: var(--collage-board);
