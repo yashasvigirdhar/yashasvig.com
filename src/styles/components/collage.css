@@ -66,12 +66,19 @@
 	align-items: flex-start;
 	gap: 0.4rem;
 }
-.weight-who {
+/* Person label (gender, age): a small chip so it reads as a fact about the person, not a footnote. */
+.weight-who,
+.spot-card.quote-spot.featured .who {
 	flex: none;
-	font-size: 0.68rem;
-	color: var(--collage-muted);
+	align-self: flex-start;
+	font-size: 0.7rem;
+	font-weight: 600;
+	color: var(--color-accent-2);
+	background: var(--collage-board);
+	border: 1px solid var(--collage-border);
+	border-radius: 999px;
+	padding: 0.12rem 0.55rem;
 	white-space: nowrap;
-	padding-top: 0.15rem;
 }
 .weight-delta {
 	font-weight: 700;
@@ -362,12 +369,10 @@
 	flex-direction: column;
 }
 .spot-card.quote-spot.featured .who {
-	display: block;
+	display: inline-block;
 	margin-top: auto;
-	padding-top: 0.5rem;
-	text-align: right;
-	font-size: 0.66rem;
-	color: var(--collage-muted);
+	align-self: flex-end;
+	margin-block-start: 0.6rem;
 }
 /* Dwell progress: a hairline that fills over one hold, so the next change is predictable. */
 .spot-progress {
